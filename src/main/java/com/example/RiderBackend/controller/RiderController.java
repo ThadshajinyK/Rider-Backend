@@ -42,4 +42,13 @@ public class RiderController{
 return riderRepository.save(rider);
                 }).orElseThrow(()->new RiderNotFoundException(id));
     }
+
+    @DeleteMapping("/rider/{id}")
+    String deleteRider(@PathVariable Long id){
+        if(!riderRepository.existsById(id)){
+            throw new RiderNotFoundException(id);
+        }
+        riderRepository.deleteById(id);
+        return "User with id "+id + "has been deleted successfully";
+    }
 }
