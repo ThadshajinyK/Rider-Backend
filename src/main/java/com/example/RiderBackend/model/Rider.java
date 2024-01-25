@@ -6,13 +6,21 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Rider {
-
     @Id
     @GeneratedValue
     private Long id;
     private String name;
     private String email;
     private String position;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     private String nic;
     private Boolean status; // active or not active
     private String image;
@@ -65,11 +73,5 @@ public class Rider {
         this.status = status;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 }
